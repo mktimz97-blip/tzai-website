@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TZAI Company Group — AI Automation</title>
+<meta name="description" content="TZAI Company Group — автоматизация бизнес-процессов с помощью AI. Экономия $6,791/мес.">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --blue:#378ADD;--purple:#7F77DD;--deep:#534AB7;--bg:#080c1a;--bg2:#0d1229;
+  --card:#111738;--text:#e2e8f0;--muted:#8892b0;--white:#fff;
+  --grad:linear-gradient(135deg,var(--blue),var(--purple));
+  --grad3:linear-gradient(135deg,var(--blue),var(--purple),var(--deep));
+}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:var(--blue);text-decoration:none}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;z-index:100;backdrop-filter:blur(20px);background:rgba(8,12,26,.7);border-bottom:1px solid rgba(55,138,221,.1);transition:all .3s}
+.nav-logo{font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{color:var(--muted);font-size:.9rem;transition:color .3s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{padding:8px 24px;background:var(--grad);border:none;border-radius:8px;color:#fff;font-size:.85rem;font-weight:600;cursor:pointer;transition:transform .2s,box-shadow .3s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(55,138,221,.3)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;overflow:hidden}
+.hero-bg::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(55,138,221,.08) 0%,transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(127,119,221,.08) 0%,transparent 50%)}
+
+/* ── BIRDS (realistic M-shape silhouettes) ── */
+.birds{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.bird{position:absolute;animation:birdFly linear infinite}
+@keyframes birdFly{
+  0%{transform:translate(-80px,0)}
+  20%{transform:translate(20vw,-50px)}
+  40%{transform:translate(40vw,-80px)}
+  60%{transform:translate(60vw,-55px)}
+  80%{transform:translate(80vw,-70px)}
+  100%{transform:translate(110vw,-30px)}
+}
+.bird svg{filter:drop-shadow(0 0 8px rgba(55,138,221,.35))}
+
+/* ── CHALK FORMULAS (full page) ── */
+.formulas-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.formula{position:absolute;font-family:'Courier New',monospace;white-space:nowrap;opacity:0}
+@keyframes chalkIn{
+  0%{opacity:0;clip-path:inset(0 100% 0 0)}
+  7%{opacity:var(--fo);clip-path:inset(0 50% 0 0)}
+  12%{opacity:var(--fo);clip-path:inset(0 0% 0 0)}
+  80%{opacity:var(--fo);clip-path:inset(0 0% 0 0)}
+  95%{opacity:0;clip-path:inset(0 0% 0 0)}
+  100%{opacity:0;clip-path:inset(0 0% 0 0)}
+}
+
+/* ── TESLA 3-6-9 ── */
+.tesla-369{position:fixed;bottom:30px;right:30px;opacity:.2;pointer-events:none;z-index:0}
+@media(max-width:768px){.tesla-369{right:10px;bottom:10px;transform:scale(.5)}}
+
+/* ── CONTACTS BAR ── */
+.contacts-bar{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.contacts-bar a{color:var(--muted);font-size:.8rem;transition:color .3s;display:flex;align-items:center;gap:4px}
+.contacts-bar a:hover{color:var(--blue)}
+footer .footer-contacts{margin-bottom:16px;display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+footer .footer-contacts a{color:var(--muted);font-size:.85rem;transition:color .3s}
+footer .footer-contacts a:hover{color:var(--blue)}
+.form-contacts{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.form-contacts a{color:var(--blue);font-size:.85rem}
+
+/* ── HERO TEXT ── */
+.hero-logo{font-size:4.5rem;font-weight:900;letter-spacing:6px;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;position:relative;z-index:2}
+.hero-sub{color:var(--muted);font-size:1rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:40px;position:relative;z-index:2}
+.hero h1{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:700;max-width:800px;line-height:1.2;margin-bottom:16px;position:relative;z-index:2}
+.hero h1 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:550px;margin-bottom:40px;position:relative;z-index:2}
+.btn-hero{padding:16px 48px;background:var(--grad);border:none;border-radius:12px;color:#fff;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .3s;position:relative;z-index:2;box-shadow:0 4px 30px rgba(55,138,221,.3)}
+.btn-hero:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(55,138,221,.4)}
+.hero-arrow{position:absolute;bottom:30px;z-index:2;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+
+/* ── SECTIONS ── */
+section{padding:100px 20px}
+.container{max-width:1100px;margin:0 auto}
+.section-label{text-transform:uppercase;letter-spacing:4px;font-size:.8rem;color:var(--blue);font-weight:600;margin-bottom:12px;text-align:center}
+.section-title{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;text-align:center;margin-bottom:16px}
+.section-desc{color:var(--muted);text-align:center;max-width:600px;margin:0 auto 60px}
+
+/* ── LIVE COUNTER ── */
+.live-counter{background:var(--bg);border-top:1px solid rgba(55,138,221,.08);border-bottom:1px solid rgba(55,138,221,.08);padding:60px 20px}
+.live-counter .section-title{margin-bottom:50px}
+.live-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px;max-width:1000px;margin:0 auto}
+.live-stat{text-align:center}
+.live-num{font-size:3.2rem;font-weight:800;color:var(--blue);font-variant-numeric:tabular-nums;margin-bottom:6px;min-height:50px}
+.live-label{color:var(--white);font-size:1rem;font-weight:500}
+.live-pulse{display:inline-block;width:8px;height:8px;background:#22c55e;border-radius:50%;margin-right:8px;animation:pulse 1.5s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.4)}50%{opacity:.7;box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+
+/* ── PROBLEMS ── */
+.problems{background:var(--bg2)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.card{background:var(--card);border:1px solid rgba(55,138,221,.1);border-radius:16px;padding:36px 28px;transition:all .4s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:0;transition:opacity .4s}
+.card:hover{transform:translateY(-6px);border-color:rgba(55,138,221,.3);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.card:hover::before{opacity:1}
+.card-icon{font-size:2.5rem;margin-bottom:16px}
+.card h3{font-size:1.2rem;margin-bottom:10px;font-weight:600}
+.card p{color:var(--muted);font-size:.95rem}
+.card-tag{display:inline-block;margin-top:14px;padding:4px 14px;background:rgba(55,138,221,.1);color:var(--blue);border-radius:20px;font-size:.8rem;font-weight:600}
+
+/* ── HOW IT WORKS ── */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;position:relative}
+.step{text-align:center;position:relative}
+.step-num{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:800;color:#fff;box-shadow:0 8px 30px rgba(55,138,221,.25)}
+.step h3{font-size:1.15rem;margin-bottom:10px}
+.step p{color:var(--muted);font-size:.95rem;max-width:280px;margin:0 auto}
+.step-connector{display:none}
+@media(min-width:900px){
+  .step-connector{display:block;position:absolute;top:32px;right:-20px;width:40px;height:2px;background:linear-gradient(90deg,var(--blue),transparent)}
+  .step:last-child .step-connector{display:none}
+}
+
+/* ── WHAT YOU GET ── */
+.whatyouget{background:var(--bg2)}
+.get-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.get-features{display:flex;flex-direction:column;gap:24px}
+.get-feature{display:flex;gap:16px;align-items:flex-start}
+.get-icon{width:44px;height:44px;border-radius:12px;background:rgba(55,138,221,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}
+.get-feature h4{font-size:1.05rem;margin-bottom:4px}
+.get-feature p{color:var(--muted);font-size:.9rem}
+.dashboard-mock{background:var(--card);border:1px solid rgba(55,138,221,.15);border-radius:16px;padding:20px;font-family:'Courier New',monospace;font-size:.7rem;color:var(--muted);line-height:1.4;overflow:hidden;position:relative}
+.dashboard-mock .db-header{display:flex;justify-content:space-between;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06)}
+.dashboard-mock .db-title{color:var(--blue);font-weight:700;font-size:.85rem}
+.dashboard-mock .db-live{color:#22c55e;font-size:.7rem}
+.db-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.03)}
+.db-bar{height:6px;border-radius:3px;margin-top:8px;margin-bottom:4px}
+.db-bar-fill{height:100%;border-radius:3px;background:var(--grad)}
+@media(max-width:768px){.get-grid{grid-template-columns:1fr}}
+
+/* ── RESULTS ── */
+.results{background:var(--bg)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:32px}
+.stat{text-align:center;padding:40px 20px;background:var(--card);border-radius:16px;border:1px solid rgba(127,119,221,.1);transition:all .4s}
+.stat:hover{border-color:rgba(127,119,221,.3);transform:translateY(-4px)}
+.stat-value{font-size:3rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.stat-label{color:var(--muted);font-size:1rem}
+.stat-detail{color:var(--blue);font-size:.85rem;margin-top:8px;font-weight:600}
+
+/* ── CTA / FORM ── */
+.cta-section{position:relative}
+.cta-box{max-width:600px;margin:0 auto;background:var(--card);border:1px solid rgba(55,138,221,.15);border-radius:20px;padding:50px 40px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:var(--grad);border-radius:22px;z-index:-1;opacity:.15}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:6px;font-weight:500}
+.form-group input,.form-group textarea{width:100%;padding:14px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:var(--white);font-size:1rem;font-family:inherit;transition:border-color .3s,box-shadow .3s;outline:none}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--blue);box-shadow:0 0 20px rgba(55,138,221,.15)}
+.form-group textarea{resize:vertical;min-height:80px}
+.btn-submit{width:100%;padding:16px;background:var(--grad);border:none;border-radius:12px;color:#fff;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .3s;margin-top:8px}
+.btn-submit:hover{box-shadow:0 8px 30px rgba(55,138,221,.4);transform:translateY(-2px)}
+.form-note{text-align:center;color:var(--muted);font-size:.8rem;margin-top:14px}
+
+/* ── FOOTER ── */
+footer{padding:40px 20px;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+footer .footer-name{font-size:1.1rem;font-weight:600;margin-bottom:4px}
+footer .footer-title{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+footer .footer-copy{color:rgba(255,255,255,.2);font-size:.8rem}
+footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(40px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .hero-logo{font-size:3rem}
+  .cta-box{padding:36px 24px}
+  section{padding:70px 16px}
+  .live-num{font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- FULL-PAGE FORMULA LAYER -->
+<div class="formulas-layer" id="formulas"></div>
+
+<!-- TESLA 3-6-9 DIAGRAM -->
+<svg class="tesla-369" width="180" height="180" viewBox="0 0 180 180" fill="none">
+  <!-- Main circle -->
+  <circle cx="90" cy="90" r="80" stroke="rgba(255,255,255,.5)" stroke-width="1"/>
+  <!-- Numbers 1-9 on circle -->
+  <text x="90" y="18" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="14" font-family="Courier New" font-weight="700">9</text>
+  <text x="149" y="38" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="12" font-family="Courier New">1</text>
+  <text x="170" y="93" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="12" font-family="Courier New">2</text>
+  <text x="149" y="148" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="14" font-family="Courier New" font-weight="700">3</text>
+  <text x="90" y="172" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="12" font-family="Courier New">4</text>
+  <text x="31" y="148" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="12" font-family="Courier New">5</text>
+  <text x="10" y="93" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="14" font-family="Courier New" font-weight="700">6</text>
+  <text x="31" y="38" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="12" font-family="Courier New">7</text>
+  <text x="55" y="18" text-anchor="middle" fill="rgba(255,255,255,.25)" font-size="12" font-family="Courier New">8</text>
+  <!-- Triangle connecting 3-6-9 -->
+  <polygon points="90,14 145,143 17,90" stroke="#7F77DD" stroke-width="1.5" fill="none" opacity=".5">
+    <animate attributeName="opacity" values=".3;.6;.3" dur="4s" repeatCount="indefinite"/>
+  </polygon>
+  <!-- Dots at 3, 6, 9 -->
+  <circle cx="90" cy="14" r="4" fill="#7F77DD" opacity=".6"/>
+  <circle cx="145" cy="143" r="4" fill="#7F77DD" opacity=".6"/>
+  <circle cx="17" cy="90" r="4" fill="#7F77DD" opacity=".6"/>
+  <!-- Center label -->
+  <text x="90" y="88" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="9" font-family="Courier New">3 &bull; 6 &bull; 9</text>
+  <text x="90" y="100" text-anchor="middle" fill="rgba(255,255,255,.2)" font-size="7" font-family="Courier New">Tesla</text>
+</svg>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">TZAI</div>
+  <ul class="nav-links">
+    <li><a href="#problems">Проблемы</a></li>
+    <li><a href="#how">Как работает</a></li>
+    <li><a href="#results">Результаты</a></li>
+    <li><a href="https://t.me/Salvatore_Lazzaro" target="_blank">Telegram</a></li>
+    <li><a href="tel:+79055066155">+7 905 506 61 55</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Получить демо</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="birds" id="birds"></div>
+
+  <div class="hero-logo">TZAI</div>
+  <div class="hero-sub">Company Group</div>
+  <h1>Мы автоматизируем то,<br>что <span>убивает ваше время</span></h1>
+  <p>AI-агенты которые работают 24/7 — обрабатывают данные, отвечают клиентам, создают отчёты. Без багов и выходных.</p>
+  <button class="btn-hero" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Получить бесплатное демо</button>
+  <div class="hero-arrow">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="2"><path d="M7 13l5 5 5-5M7 7l5 5 5-5"/></svg>
+  </div>
+</section>
+
+<!-- LIVE COUNTER -->
+<section class="live-counter">
+  <div class="container">
+    <div class="section-label"><span class="live-pulse"></span>Прямо сейчас</div>
+    <h2 class="section-title">Пока вы искали нас — наши агенты уже работали</h2>
+    <div class="live-stats">
+      <div class="live-stat">
+        <div class="live-num" id="liveCompanies">847</div>
+        <div class="live-label">компаний проанализировано сегодня</div>
+      </div>
+      <div class="live-stat">
+        <div class="live-num" id="liveRows">2,847,391</div>
+        <div class="live-label">строк данных обработано</div>
+      </div>
+      <div class="live-stat">
+        <div class="live-num" id="liveHours">1,204.7</div>
+        <div class="live-label">часов сэкономлено клиентам</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="problems" id="problems">
+  <div class="container">
+    <div class="section-label">Знакомо?</div>
+    <h2 class="section-title">Проблемы которые съедают ваш бюджет</h2>
+    <p class="section-desc">Каждый день ваша команда тратит часы на то, что AI делает за секунды</p>
+    <div class="cards">
+      <div class="card fade-up">
+        <div class="card-icon">&#9201;</div>
+        <h3>Ручная обработка данных</h3>
+        <p>Ваши сотрудники тратят 4-6 часов в день на копирование данных между системами, ручные выгрузки и проверки. AI делает это за минуты.</p>
+        <span class="card-tag">часы &rarr; минуты</span>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon">&#128556;</div>
+        <h3>Потеря клиентов из-за скорости</h3>
+        <p>Клиент ждёт ответ 2 часа — уходит к конкуренту. AI-агент отвечает за 30 секунд, квалифицирует лид и передаёт менеджеру готовую сделку.</p>
+        <span class="card-tag">2 часа &rarr; 30 секунд</span>
+      </div>
+      <div class="card fade-up">
+        <div class="card-icon">&#128202;</div>
+        <h3>Отчёты которые никто не читает</h3>
+        <p>Менеджеры тратят пятницу на отчёты в Excel. AI генерирует их автоматически, выделяет главное и отправляет в Telegram/Slack.</p>
+        <span class="card-tag">пятница &rarr; автоматически</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="section-label">Процесс</div>
+    <h2 class="section-title">Как это работает</h2>
+    <p class="section-desc">Три простых шага от хаоса к автоматизации</p>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">1</div>
+        <h3>Анализируем ваш бизнес</h3>
+        <p>15-минутный звонок. Находим где вы теряете время и деньги. Без обязательств.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">2</div>
+        <h3>Настраиваем AI-агентов</h3>
+        <p>Создаём агентов под ваши процессы. Интегрируем с вашими системами за 1-3 дня.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">3</div>
+        <h3>Агенты работают 24/7</h3>
+        <p>Вы видите результат в реальном времени. Агенты учатся и становятся лучше каждый день.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="whatyouget" id="whatyouget">
+  <div class="container">
+    <div class="section-label">Результат</div>
+    <h2 class="section-title">Что вы получаете</h2>
+    <p class="section-desc">Не абстрактные обещания — а конкретные инструменты которые работают с первого дня</p>
+    <div class="get-grid fade-up">
+      <!-- Dashboard Mock -->
+      <div class="dashboard-mock">
+        <div class="db-header">
+          <span class="db-title">TZAI Dashboard — Live</span>
+          <span class="db-live">&#9679; Online</span>
+        </div>
+        <div class="db-row"><span>&#128202; Лиды обработаны</span><span style="color:#22c55e">+127 сегодня</span></div>
+        <div class="db-row"><span>&#9993; Email ответов</span><span style="color:#22c55e">34 / 89%</span></div>
+        <div class="db-row"><span>&#128176; Сделки в работе</span><span style="color:var(--blue)">$42,800</span></div>
+        <div class="db-row"><span>&#9201; Среднее время ответа</span><span style="color:#22c55e">28 сек</span></div>
+        <div style="margin-top:12px;color:rgba(255,255,255,.25);font-size:.65rem">Конверсия воронки</div>
+        <div class="db-bar" style="width:100%;background:rgba(255,255,255,.05)"><div class="db-bar-fill" style="width:73%"></div></div>
+        <div style="display:flex;justify-content:space-between;font-size:.6rem"><span>Lead</span><span>Qualified</span><span>Demo</span><span>Client</span></div>
+        <div style="margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between">
+          <span>&#128200; ROI за месяц</span><span style="color:#22c55e;font-weight:700">+340%</span>
+        </div>
+        <div class="db-row"><span>&#128178; Экономия</span><span style="color:var(--blue);font-weight:700">$6,791</span></div>
+        <div style="margin-top:10px;text-align:center;color:rgba(255,255,255,.15);font-size:.6rem">Обновлено: только что &bull; Следующий отчёт: 09:00</div>
+      </div>
+      <!-- Features -->
+      <div class="get-features">
+        <div class="get-feature">
+          <div class="get-icon">&#128233;</div>
+          <div>
+            <h4>Ежедневный отчёт в 9:00</h4>
+            <p>Каждое утро на email — что сделали агенты за сутки, ключевые метрики, аномалии</p>
+          </div>
+        </div>
+        <div class="get-feature">
+          <div class="get-icon">&#128296;</div>
+          <div>
+            <h4>Агенты работают 24/7</h4>
+            <p>Без выходных, больничных и отпусков. Обрабатывают запросы даже когда вы спите</p>
+          </div>
+        </div>
+        <div class="get-feature">
+          <div class="get-icon">&#128200;</div>
+          <div>
+            <h4>Живой дашборд</h4>
+            <p>Все метрики в реальном времени — лиды, конверсия, экономия, ROI</p>
+          </div>
+        </div>
+        <div class="get-feature">
+          <div class="get-icon">&#128176;</div>
+          <div>
+            <h4>Экономия от $3,000/мес</h4>
+            <p>Гарантированная экономия с первого месяца или мы работаем бесплатно до результата</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results" id="results">
+  <div class="container">
+    <div class="section-label">Результаты</div>
+    <h2 class="section-title">Цифры наших клиентов</h2>
+    <p class="section-desc">Средние показатели за первый месяц работы с TZAI</p>
+    <div class="stats">
+      <div class="stat fade-up">
+        <div class="stat-value" data-target="6791" data-prefix="$" data-suffix="">$0</div>
+        <div class="stat-label">экономия в месяц</div>
+        <div class="stat-detail">в среднем по всем клиентам</div>
+      </div>
+      <div class="stat fade-up">
+        <div class="stat-value" data-target="52" data-prefix="" data-suffix=" ч" data-decimal="1" data-real="5.2">0</div>
+        <div class="stat-label">сэкономлено ежедневно</div>
+        <div class="stat-detail">время команды на автопилоте</div>
+      </div>
+      <div class="stat fade-up">
+        <div class="stat-value" data-target="148" data-prefix="" data-suffix="">0</div>
+        <div class="stat-label">задач автоматизировано</div>
+        <div class="stat-detail">каждый день без участия людей</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / FORM -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="section-label">Начните сегодня</div>
+    <h2 class="section-title">Напишите нам</h2>
+    <p class="section-desc">Расскажите о вашей главной боли &mdash; мы покажем как AI решит её за дни, а не месяцы</p>
+    <div class="cta-box fade-up">
+      <form id="leadForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Ваше имя</label>
+          <input type="text" id="name" name="name" placeholder="Как вас зовут?" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Компания</label>
+          <input type="text" id="company" name="company" placeholder="Название компании" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@company.com" required>
+        </div>
+        <div class="form-group">
+          <label for="pain">Главная боль бизнеса</label>
+          <textarea id="pain" name="pain" placeholder="Что отнимает больше всего времени? Где теряете деньги?" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Получить бесплатное демо</button>
+      </form>
+      <div id="formSuccess" style="display:none;text-align:center;padding:40px 0">
+        <div style="font-size:3rem;margin-bottom:16px">&#10003;</div>
+        <h3 style="margin-bottom:8px">Отлично!</h3>
+        <p style="color:var(--muted)">Мы свяжемся с вами в течение 24 часов.<br>Обычно быстрее.</p>
+      </div>
+      <div class="form-contacts">
+        <a href="https://t.me/Salvatore_Lazzaro" target="_blank">Telegram</a>
+        <a href="https://wa.me/79055066155" target="_blank">WhatsApp</a>
+        <a href="tel:+79055066155">+7 905 506 61 55</a>
+        <a href="mailto:timur.ziyoev@mail.ru">timur.ziyoev@mail.ru</a>
+      </div>
+      <p class="form-note">Без спама. Только конкретное решение вашей проблемы.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">TZAI</div>
+  <div class="footer-name">Timur Alisherovich</div>
+  <div class="footer-title">CEO & AI Automation Architect</div>
+  <div class="footer-contacts">
+    <a href="https://t.me/Salvatore_Lazzaro" target="_blank">Telegram: @Salvatore_Lazzaro</a>
+    <a href="tel:+79055066155">+7 905 506 61 55</a>
+    <a href="mailto:timur.ziyoev@mail.ru">timur.ziyoev@mail.ru</a>
+    <a href="https://wa.me/79055066155" target="_blank">WhatsApp</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 TZAI Company Group. All rights reserved.</div>
+</footer>
+
+<script>
+// ══════════════════════════════════════
+// 1. BIRDS — 7 realistic M-shape silhouettes
+// ══════════════════════════════════════
+(function(){
+  const el = document.getElementById('birds');
+  const birds = [
+    // 3 large (30px)
+    { w:60, h:26, y:18, dur:39, delay:0,   clr:'#378ADD', op:.65, flapDur:1.2 },
+    { w:58, h:25, y:24, dur:42, delay:3,   clr:'#4F8AD8', op:.6,  flapDur:1.3 },
+    { w:56, h:24, y:14, dur:45, delay:6,   clr:'#5E82D5', op:.55, flapDur:1.4 },
+    // 2 medium (20px)
+    { w:40, h:17, y:30, dur:51, delay:8,   clr:'#7F77DD', op:.5,  flapDur:1.1 },
+    { w:38, h:16, y:22, dur:54, delay:11,  clr:'#6E7CDB', op:.45, flapDur:1.2 },
+    // 2 small (12px)
+    { w:24, h:10, y:36, dur:63, delay:14,  clr:'#534AB7', op:.4,  flapDur:1.0 },
+    { w:22, h:9,  y:28, dur:69, delay:17,  clr:'#534AB7', op:.35, flapDur:.9 },
+  ];
+  birds.forEach(b => {
+    const d = document.createElement('div');
+    d.className = 'bird';
+    // M-shaped bird with Bezier curves + wing flap animation
+    d.innerHTML = `<svg width="${b.w}" height="${b.h}" viewBox="-24 -14 48 20" overflow="visible">
+      <path stroke="${b.clr}" fill="none" stroke-width="2" stroke-linecap="round" opacity="${b.op}">
+        <animate attributeName="d"
+          values="M-24,-6 C-16,-12 -8,-8 0,0 C8,-8 16,-12 24,-6;
+                  M-24,2 C-16,6 -8,2 0,0 C8,2 16,6 24,2;
+                  M-24,-6 C-16,-12 -8,-8 0,0 C8,-8 16,-12 24,-6"
+          dur="${b.flapDur}s" repeatCount="indefinite"/>
+      </path>
+    </svg>`;
+    d.style.top = b.y + '%';
+    d.style.animationDuration = b.dur + 's';
+    d.style.animationDelay = b.delay + 's';
+    el.appendChild(d);
+  });
+})();
+
+// ══════════════════════════════════════
+// 2. CHALK FORMULAS — 25 formulas across full page
+// ══════════════════════════════════════
+(function(){
+  const el = document.getElementById('formulas');
+  const F = [
+    'ROI = \u0394Revenue / \u0394Cost',
+    '\u03C3\u00B2 = \u03A3(x\u1D62\u2212\u03BC)\u00B2/n',
+    'LTV/CAC \u2265 3',
+    'P(x|\u03B8) = L(\u03B8|x)\u00B7P(\u03B8)/P(x)',
+    'CAGR = (Vf/Vi)^(1/t)\u22121',
+    'F\u2081 = 2\u00B7P\u00B7R/(P+R)',
+    '\u2207L(\u03B8) = \u2212\u03A3 y\u1D62log(\u0177\u1D62)',
+    'AUC-ROC \u2265 0.85',
+    'E = mc\u00B2',
+    '\u222E E\u00B7dA = Q/\u03B5\u2080',
+    'i\u210F\u2202\u03C8/\u2202t = \u0124\u03C8',
+    'Ric(g) \u2212 \u00BDRg + \u039Bg = 8\u03C0GT',
+    '\u0394S \u2265 0',
+    '\u221A(\u22121) = i',
+    'e^(i\u03C0) + 1 = 0',
+    '\u2202\u00B2u/\u2202t\u00B2 = c\u00B2\u2207\u00B2u',
+    'V \u2212 E + F = 2',
+    '\u03A6 = LI',
+    'B = \u03BC\u2080(H + M)',
+    'f(z) = \u03A3 a\u2099(z\u2212z\u2080)\u207F',
+    'det(A\u2212\u03BBI) = 0',
+    'H(X) = \u2212\u03A3 p(x)log p(x)',
+    'd/dx[e\u02E3] = e\u02E3',
+    '\u222B\u208B\u221E^\u221E e^(\u2212x\u00B2)dx = \u221A\u03C0',
+    '\u2202f/\u2202x\u1D62 = lim \u0394f/\u0394x\u1D62',
+  ];
+  // 25 positions scattered across the full viewport height (many screens tall)
+  const P = [
+    {x:3,  y:2,  s:2.8}, {x:55, y:1,  s:2.0}, {x:80, y:3,  s:1.6},
+    {x:8,  y:8,  s:2.2}, {x:42, y:6,  s:2.6}, {x:70, y:9,  s:1.8},
+    {x:15, y:15, s:2.4}, {x:58, y:14, s:1.5}, {x:32, y:18, s:3.0},
+    {x:76, y:17, s:1.9}, {x:5,  y:24, s:1.7}, {x:62, y:22, s:2.3},
+    {x:25, y:28, s:2.6}, {x:83, y:26, s:1.5}, {x:40, y:32, s:2.1},
+    {x:10, y:38, s:2.5}, {x:65, y:35, s:1.7}, {x:48, y:42, s:2.9},
+    {x:3,  y:48, s:2.0}, {x:72, y:45, s:1.6}, {x:28, y:52, s:2.2},
+    {x:58, y:55, s:2.7}, {x:15, y:60, s:1.5}, {x:78, y:58, s:1.9},
+    {x:40, y:65, s:2.4},
+  ];
+
+  function spawn(i) {
+    const f = document.createElement('div');
+    f.className = 'formula';
+    f.textContent = F[i % F.length];
+    const p = P[i % P.length];
+    const op = (0.3 + Math.random() * 0.15).toFixed(2);
+    const clr = Math.random() > 0.5 ? '#7F77DD' : '#378ADD';
+    f.style.cssText = `left:${p.x}%;top:${p.y}%;font-size:${p.s}rem;color:${clr};--fo:${op};animation:chalkIn ${7+Math.random()*4}s ease-in-out forwards`;
+    el.appendChild(f);
+    f.addEventListener('animationend', () => {
+      f.remove();
+      setTimeout(() => spawn(i), 800 + Math.random() * 2500);
+    });
+  }
+  // Stagger: launch all 25 with varied delays so 8-12 visible at once
+  for (let i = 0; i < 25; i++) {
+    setTimeout(() => spawn(i), i * 500 + Math.random() * 1500);
+  }
+})();
+
+// ══════════════════════════════════════
+// 3. LIVE COUNTERS — real-time growth
+// ══════════════════════════════════════
+(function(){
+  let companies = 847;
+  let rows = 2847391;
+  let hours = 1204.7;
+
+  const elC = document.getElementById('liveCompanies');
+  const elR = document.getElementById('liveRows');
+  const elH = document.getElementById('liveHours');
+
+  function fmt(n){ return Math.floor(n).toLocaleString('en-US'); }
+
+  // Companies: +1 every second
+  setInterval(() => { companies++; elC.textContent = fmt(companies); }, 1000);
+
+  // Rows: +1847 every 100ms
+  setInterval(() => { rows += 1847; elR.textContent = fmt(rows); }, 100);
+
+  // Hours: +0.3 every 500ms
+  setInterval(() => { hours += 0.3; elH.textContent = fmt(hours) + '.' + Math.floor((hours*10)%10); }, 500);
+})();
+
+// ══════════════════════════════════════
+// 4. SCROLL ANIMATIONS
+// ══════════════════════════════════════
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ══════════════════════════════════════
+// 5. RESULTS COUNTER ANIMATION
+// ══════════════════════════════════════
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(!entry.isIntersecting) return;
+    const el = entry.target;
+    if(el.dataset.counted) return;
+    el.dataset.counted = '1';
+    const target = parseInt(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const realVal = el.dataset.real;
+    const duration = 2000;
+    const start = performance.now();
+    function tick(now){
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+      if(realVal && progress >= 1){
+        el.textContent = prefix + realVal + suffix;
+      } else {
+        el.textContent = prefix + current.toLocaleString('en-US') + suffix;
+      }
+      if(progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-value').forEach(el => counterObserver.observe(el));
+
+// ══════════════════════════════════════
+// 6. FORM HANDLER
+// ══════════════════════════════════════
+function handleSubmit(e){
+  e.preventDefault();
+  const form = document.getElementById('leadForm');
+  const data = {
+    name: form.name.value,
+    company: form.company.value,
+    email: form.email.value,
+    pain: form.pain.value,
+    timestamp: new Date().toISOString()
+  };
+  console.log('Lead captured:', data);
+  form.style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  document.querySelector('.form-note').style.display = 'none';
+}
+
+// ══════════════════════════════════════
+// 7. NAV SCROLL
+// ══════════════════════════════════════
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').style.borderBottomColor =
+    window.scrollY > 50 ? 'rgba(55,138,221,.15)' : 'rgba(55,138,221,.05)';
+});
+</script>
+</body>
+</html>
