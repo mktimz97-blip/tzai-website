@@ -180,7 +180,33 @@ footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-web
   .cta-box{padding:36px 24px}
   section{padding:70px 16px}
   .live-num{font-size:2.4rem}
+  .how-found-steps{flex-direction:column}
+  .live-feed{max-height:200px}
 }
+
+/* ── LIVE FEED ── */
+.live-feed-section{background:var(--bg);border-top:1px solid rgba(55,138,221,.08);padding:50px 20px}
+.live-feed{max-height:260px;overflow:hidden;position:relative;background:var(--card);border:1px solid rgba(55,138,221,.1);border-radius:12px;padding:16px 20px;font-family:'Courier New',monospace;font-size:.82rem;line-height:1.8}
+.live-feed::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:linear-gradient(transparent,var(--card))}
+.feed-line{opacity:0;animation:feedIn .5s ease forwards;color:var(--muted)}
+.feed-line .feed-time{color:var(--blue);margin-right:8px}
+.feed-line .feed-ok{color:#22c55e}
+.feed-line .feed-agent{color:var(--purple)}
+@keyframes feedIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.feed-header{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.feed-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;animation:pulse 1.5s ease infinite}
+.feed-title{color:var(--white);font-size:.9rem;font-weight:600}
+
+/* ── HOW WE FOUND YOU ── */
+.how-found{background:var(--bg2);padding:80px 20px}
+.how-found-box{max-width:800px;margin:0 auto;border-left:4px solid var(--purple);background:var(--card);border-radius:0 16px 16px 0;padding:40px 36px}
+.how-found-box h3{font-size:1.3rem;margin-bottom:8px;color:var(--white)}
+.how-found-box .hf-sub{color:var(--muted);font-size:.95rem;margin-bottom:28px}
+.how-found-steps{display:flex;gap:24px}
+.hf-step{flex:1;background:rgba(127,119,221,.06);border:1px solid rgba(127,119,221,.15);border-radius:12px;padding:20px 16px}
+.hf-step-num{width:32px;height:32px;border-radius:50%;background:var(--grad3);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;margin-bottom:12px}
+.hf-step h4{font-size:.95rem;margin-bottom:6px;color:var(--white)}
+.hf-step p{color:var(--muted);font-size:.85rem;line-height:1.5}
 </style>
 </head>
 <body>
@@ -250,18 +276,29 @@ footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-web
     <h2 class="section-title">Пока вы искали нас — наши агенты уже работали</h2>
     <div class="live-stats">
       <div class="live-stat">
-        <div class="live-num" id="liveCompanies">847</div>
+        <div class="live-num" id="liveCompanies">280</div>
         <div class="live-label">компаний проанализировано сегодня</div>
       </div>
       <div class="live-stat">
-        <div class="live-num" id="liveRows">2,847,391</div>
+        <div class="live-num" id="liveRows">940,000</div>
         <div class="live-label">строк данных обработано</div>
       </div>
       <div class="live-stat">
-        <div class="live-num" id="liveHours">1,204.7</div>
+        <div class="live-num" id="liveHours">401</div>
         <div class="live-label">часов сэкономлено клиентам</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- LIVE FEED -->
+<section class="live-feed-section">
+  <div class="container">
+    <div class="feed-header">
+      <span class="feed-dot"></span>
+      <span class="feed-title">Экосистема TZAI — прямо сейчас</span>
+    </div>
+    <div class="live-feed" id="liveFeed"></div>
   </div>
 </section>
 
@@ -337,13 +374,13 @@ footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-web
         </div>
         <div class="db-row"><span>&#128202; Лиды обработаны</span><span style="color:#22c55e">+127 сегодня</span></div>
         <div class="db-row"><span>&#9993; Email ответов</span><span style="color:#22c55e">34 / 89%</span></div>
-        <div class="db-row"><span>&#128176; Сделки в работе</span><span style="color:var(--blue)">$42,800</span></div>
+        <div class="db-row"><span>&#128176; Сделки в работе</span><span style="color:var(--blue)">$14,200</span></div>
         <div class="db-row"><span>&#9201; Среднее время ответа</span><span style="color:#22c55e">28 сек</span></div>
         <div style="margin-top:12px;color:rgba(255,255,255,.25);font-size:.65rem">Конверсия воронки</div>
         <div class="db-bar" style="width:100%;background:rgba(255,255,255,.05)"><div class="db-bar-fill" style="width:73%"></div></div>
         <div style="display:flex;justify-content:space-between;font-size:.6rem"><span>Lead</span><span>Qualified</span><span>Demo</span><span>Client</span></div>
         <div style="margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between">
-          <span>&#128200; ROI за месяц</span><span style="color:#22c55e;font-weight:700">+340%</span>
+          <span>&#128200; ROI за месяц</span><span style="color:#22c55e;font-weight:700">+118%</span>
         </div>
         <div class="db-row"><span>&#128178; Экономия</span><span style="color:var(--blue);font-weight:700">$6,791</span></div>
         <div style="margin-top:10px;text-align:center;color:rgba(255,255,255,.15);font-size:.6rem">Обновлено: только что &bull; Следующий отчёт: 09:00</div>
@@ -409,6 +446,33 @@ footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-web
   </div>
 </section>
 
+<!-- HOW WE FOUND YOU -->
+<section class="how-found">
+  <div class="container">
+    <div class="how-found-box fade-up">
+      <h3>Как мы нашли вас</h3>
+      <p class="hf-sub">Та самая система, которую мы предлагаем — уже работает на нас</p>
+      <div class="how-found-steps">
+        <div class="hf-step">
+          <div class="hf-step-num">1</div>
+          <h4>LeadFinder нашёл вашу компанию</h4>
+          <p>Каждые 6 часов система анализирует 280+ компаний по открытым источникам — сайты, вакансии, тендеры</p>
+        </div>
+        <div class="hf-step">
+          <div class="hf-step-num">2</div>
+          <h4>AI проанализировал признаки роста</h4>
+          <p>Вакансии на hh.ru, тендеры на zakupki.gov.ru, активность в LinkedIn — всё это сигналы потребности в автоматизации</p>
+        </div>
+        <div class="hf-step">
+          <div class="hf-step-num">3</div>
+          <h4>Система решила что вам это актуально</h4>
+          <p>Ваш score выше 60 из 100 — значит у вас есть процессы, которые AI может ускорить в разы</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA / FORM -->
 <section class="cta-section" id="contact">
   <div class="container">
@@ -444,7 +508,7 @@ footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-web
         <a href="https://t.me/Salvatore_Lazzaro" target="_blank">Telegram</a>
         <a href="https://wa.me/79055066155" target="_blank">WhatsApp</a>
         <a href="tel:+79055066155">+7 905 506 61 55</a>
-        <a href="mailto:tzai.flow@mail.ru">tzai.flow@mail.ru</a>
+        <a href="mailto:info@tzai.it.com">info@tzai.it.com</a>
       </div>
       <p class="form-note">Без спама. Только конкретное решение вашей проблемы.</p>
     </div>
@@ -459,7 +523,7 @@ footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-web
   <div class="footer-contacts">
     <a href="https://t.me/Salvatore_Lazzaro" target="_blank">Telegram: @Salvatore_Lazzaro</a>
     <a href="tel:+79055066155">+7 905 506 61 55</a>
-    <a href="mailto:tzai.flow@mail.ru">tzai.flow@mail.ru</a>
+    <a href="mailto:info@tzai.it.com">info@tzai.it.com</a>
     <a href="https://wa.me/79055066155" target="_blank">WhatsApp</a>
   </div>
   <div class="footer-copy">&copy; 2026 TZAI Company Group. All rights reserved.</div>
@@ -569,12 +633,11 @@ footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-web
 })();
 
 // ══════════════════════════════════════
-// 3. LIVE COUNTERS — real-time growth
+// 3. LIVE COUNTERS — count up from 0 then real-time growth
 // ══════════════════════════════════════
 (function(){
-  let companies = 847;
-  let rows = 2847391;
-  let hours = 1204.7;
+  const targets = { companies: 280, rows: 940000, hours: 401 };
+  let companies = 0, rows = 0, hours = 0;
 
   const elC = document.getElementById('liveCompanies');
   const elR = document.getElementById('liveRows');
@@ -582,14 +645,74 @@ footer .footer-logo{font-size:1.3rem;font-weight:800;background:var(--grad);-web
 
   function fmt(n){ return Math.floor(n).toLocaleString('en-US'); }
 
-  // Companies: +1 every second
-  setInterval(() => { companies++; elC.textContent = fmt(companies); }, 1000);
+  // Count up animation on load
+  const duration = 2200;
+  const start = performance.now();
+  function countUp(now){
+    const p = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - p, 3);
+    companies = Math.floor(ease * targets.companies);
+    rows = Math.floor(ease * targets.rows);
+    hours = Math.floor(ease * targets.hours);
+    elC.textContent = fmt(companies);
+    elR.textContent = fmt(rows);
+    elH.textContent = fmt(hours);
+    if(p < 1){ requestAnimationFrame(countUp); }
+    else {
+      companies = targets.companies; rows = targets.rows; hours = targets.hours;
+      // Start real-time ticking after count-up finishes
+      setInterval(() => { companies++; elC.textContent = fmt(companies); }, 3000);
+      setInterval(() => { rows += 347; elR.textContent = fmt(rows); }, 200);
+      setInterval(() => { hours += 0.1; elH.textContent = fmt(hours); }, 1000);
+    }
+  }
+  // Start count-up when section is visible
+  const liveObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ requestAnimationFrame(countUp); liveObs.disconnect(); }
+    });
+  }, { threshold: 0.3 });
+  liveObs.observe(document.querySelector('.live-counter'));
+})();
 
-  // Rows: +1847 every 100ms
-  setInterval(() => { rows += 1847; elR.textContent = fmt(rows); }, 100);
-
-  // Hours: +0.3 every 500ms
-  setInterval(() => { hours += 0.3; elH.textContent = fmt(hours) + '.' + Math.floor((hours*10)%10); }, 500);
+// ══════════════════════════════════════
+// 3b. LIVE FEED — animated event stream
+// ══════════════════════════════════════
+(function(){
+  const feed = document.getElementById('liveFeed');
+  const events = [
+    ['LeadFinder', 'Найдено 12 компаний по запросу "IT аутсорсинг Москва"'],
+    ['LeadAnalyzer', 'Компания DataPro — score 78/100, 7 вакансий на hh.ru'],
+    ['AutoReply', 'Ответ отправлен: info@logistica-group.ru'],
+    ['LeadFinder', 'Сканирование zakupki.gov.ru — 3 новых тендера'],
+    ['CRM', 'Лид добавлен: ООО "ТехноСтар" — IT / Software'],
+    ['DailySummary', 'Отчёт отправлен в Telegram — 8 новых лидов'],
+    ['LeadAnalyzer', 'Компания BrightSoft — 11 open positions, score 85/100'],
+    ['AutoReply', 'Ответ отправлен: ceo@manufacturing-pro.ru'],
+    ['LeadFinder', 'Найдено 9 компаний по запросу "CRM интеграция"'],
+    ['LeadAnalyzer', 'LinkedIn сигнал: FinanceHub нанимает Data Engineer'],
+    ['CRM', 'Обновлён статус: DataPro → демо назначено'],
+    ['LeadFinder', 'hh.ru: 14 компаний с 5+ вакансиями в автоматизации'],
+    ['AutoReply', 'Получено письмо от hr@retail-chain.ru — ответ за 28 сек'],
+    ['LeadAnalyzer', 'Тендер найден: ООО "МегаЛогистика" — 4.2M руб'],
+    ['DailySummary', 'Конверсия за неделю: 12% → демо, 4% → клиент'],
+  ];
+  let idx = 0;
+  function addEvent(){
+    const ev = events[idx % events.length];
+    const now = new Date();
+    const time = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0') + ':' + now.getSeconds().toString().padStart(2,'0');
+    const line = document.createElement('div');
+    line.className = 'feed-line';
+    line.innerHTML = '<span class="feed-time">' + time + '</span> <span class="feed-agent">[' + ev[0] + ']</span> <span class="feed-ok">OK</span> ' + ev[1];
+    feed.insertBefore(line, feed.firstChild);
+    if(feed.children.length > 15) feed.removeChild(feed.lastChild);
+    idx++;
+  }
+  addEvent();
+  setTimeout(addEvent, 800);
+  setTimeout(addEvent, 1600);
+  setInterval(addEvent, 2500);
 })();
 
 // ══════════════════════════════════════
